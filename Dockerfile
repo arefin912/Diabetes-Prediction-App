@@ -7,6 +7,10 @@ RUN npm install -g bun
 # Set working directory
 WORKDIR /app
 
+# Allow build-time override of the Vite API URL (default to Render URL)
+ARG VITE_API_URL=https://diabetis-prediction-api-1.onrender.com
+ENV VITE_API_URL=$VITE_API_URL
+
 # Copy package files
 COPY package*.json bun.lockb ./
 

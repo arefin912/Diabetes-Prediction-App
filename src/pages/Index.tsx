@@ -18,7 +18,8 @@ interface PredictionResponse {
 }
 
 const Index = () => {
-  const [apiUrl, setApiUrl] = useState("https://diabetis-prediction-api-1.onrender.com");
+  const defaultApi = import.meta.env.VITE_API_URL ?? "https://diabetis-prediction-api-1.onrender.com";
+  const [apiUrl, setApiUrl] = useState<string>(defaultApi);
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState<PredictionResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
