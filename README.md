@@ -64,6 +64,55 @@ This project is built with:
 
 Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
 
+## Docker Deployment
+
+This project can be easily containerized and deployed using Docker.
+
+### Prerequisites
+
+- Docker installed on your system
+- Docker Compose (optional, for easier management)
+
+### Build and Run with Docker
+
+#### Using Docker Compose (Recommended)
+
+```sh
+# Build and run the application
+docker-compose up --build
+
+# Run in background
+docker-compose up -d --build
+
+# Stop the application
+docker-compose down
+```
+
+The application will be available at `http://localhost:3000`
+
+#### Using Docker directly
+
+```sh
+# Build the Docker image
+docker build -t diabetes-insights-hub .
+
+# Run the container
+docker run -p 3000:80 diabetes-insights-hub
+```
+
+### Docker Configuration
+
+- **Dockerfile**: Multi-stage build that compiles the React app and serves it with nginx
+- **nginx.conf**: Nginx configuration optimized for React SPA with client-side routing
+- **.dockerignore**: Excludes unnecessary files from the build context
+- **docker-compose.yml**: Easy orchestration with proper port mapping
+
+### Environment Variables
+
+The application uses the following environment variables (set in the container):
+
+- `NODE_ENV=production`
+
 ## Can I connect a custom domain to my Lovable project?
 
 Yes, you can!

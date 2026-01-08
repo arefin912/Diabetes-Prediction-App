@@ -18,7 +18,7 @@ interface PredictionResponse {
 }
 
 const Index = () => {
-  const [apiUrl, setApiUrl] = useState("http://localhost:8000");
+  const [apiUrl, setApiUrl] = useState("https://diabetis-prediction-api.onrender.com");
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState<PredictionResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
